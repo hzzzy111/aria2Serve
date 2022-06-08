@@ -4,10 +4,15 @@ import Downloading from "../views/Downloading.vue";
 import NextTack from "../views/NextTack.vue"
 import TaskInfo from "../views/TaskInfo.vue"
 import Serves from "../views/Serves.vue"
+import Setting from "../views/Setting.vue"
+import Completed from "../views/Completed.vue"
 
 Vue.use(VueRouter);
 
+
+
 const routes = [
+  
   {
     path: "/",
     name: "Downloading",
@@ -19,8 +24,9 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Completed.vue"),
+    // component: () =>
+    //   import(/* webpackChunkName: "about" */ "../views/Completed.vue"),
+    component: Completed,
   },
   {
     path: "/nexttack",
@@ -35,8 +41,9 @@ const routes = [
   {
     path: "/setting",
     name: "Setting",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Setting.vue"),
+    // component: () =>
+    //   import(/* webpackChunkName: "about" */ "../views/Setting.vue"),
+    component: Setting
   },
   {
     path: "/serves",
@@ -46,6 +53,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  base: 'dist',
   routes,
 });
 
